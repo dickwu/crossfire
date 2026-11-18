@@ -1,0 +1,47 @@
+# Copy to ~/.config/crossfire/config.toml and edit as needed.
+
+min_participants = 2
+# interrupt = finalize with status "interrupted"; fail = abort
+on_insufficient = "interrupt"
+min_rounds = 2
+max_rounds = 3
+consensus_threshold = 1.0
+# latest-round-score | least-objection
+tie_breaker = "latest-round-score"
+per_task_timeout_ms = 1200000
+per_round_timeout_ms = 1200000
+# Default artifact root. Override with CROSSFIRE_RUNS_DIR or --runs-dir.
+runs_dir = "~/.cache/crossfire/runs"
+# Working directory passed to agent CLIs as -C / --add-dir. Default: current directory.
+# workdir = "."
+max_chars_per_peer_response = 6000
+# truncate-tail | truncate-middle
+overflow_strategy = "truncate-tail"
+
+[scoring.rubric]
+correctness = 0.35
+completeness = 0.25
+actionability = 0.25
+consistency = 0.15
+
+[[agents]]
+id = "astra"
+cli = "codex"
+model = "gpt-6.2-astra"
+effort = "max"
+sandbox = "read-only"
+
+[[agents]]
+id = "sol"
+cli = "codex"
+model = "gpt-6.2-sol"
+effort = "max"
+sandbox = "read-only"
+
+# Optional third participant. Uncomment if the Claude Code CLI and this
+# model alias are available. Do not substitute a different model silently.
+# [[agents]]
+# id = "fable"
+# cli = "claude"
+# model = "fable"
+# effort = "max"

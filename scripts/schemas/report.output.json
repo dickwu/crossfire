@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CrossfireReportOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mode",
+    "traceIncluded",
+    "traceLevel",
+    "finalSummary",
+    "representativeSpeech"
+  ],
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": [
+        "builtin",
+        "representative"
+      ]
+    },
+    "traceIncluded": {
+      "type": "boolean"
+    },
+    "traceLevel": {
+      "type": "string",
+      "enum": [
+        "compact",
+        "full"
+      ]
+    },
+    "finalSummary": {
+      "type": "string"
+    },
+    "representativeSpeech": {
+      "type": "string"
+    },
+    "opinionShiftTimeline": {
+      "type": "array"
+    },
+    "roundHighlights": {
+      "type": "array"
+    }
+  }
+}
